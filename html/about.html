@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - BookReader</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .about-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 48px 0 32px 0;
+            text-align: center;
+        }
+        .about-banner h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .about-banner p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+        }
+        .about-section {
+            max-width: 700px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 36px 32px;
+            color: #333;
+        }
+        @media (max-width: 700px) {
+            .about-banner h1 { font-size: 1.6rem; }
+            .about-section { padding: 18px 8px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <h2><i class="fas fa-book-open"></i> BookReader</h2>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Trang Chủ
+                    </a>
+                    <a href="book-list.html" class="nav-link">
+                        <i class="fas fa-th-large"></i> Thể loại
+                    </a>
+                    <a href="user-library.html" class="nav-link">
+                        <i class="fas fa-bookmark"></i> Thư viện
+                    </a>
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i> Hỗ trợ
+                    </a>
+                </div>
+                <div class="nav-auth">
+                    <button class="btn-login" data-action="login">Đăng nhập</button>
+                    <button class="btn-register" data-action="register">Đăng ký</button>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="about-banner">
+        <h1>Giới thiệu về BookReader</h1>
+        <p>Nền tảng đọc sách trực tuyến miễn phí, chia sẻ tri thức cho cộng đồng Việt Nam.<br>Trải nghiệm hiện đại, dễ sử dụng, giao diện đẹp và thân thiện trên mọi thiết bị.</p>
+    </div>
+    <main>
+        <section class="about-section">
+            <h2>Sứ mệnh</h2>
+            <p>BookReader mong muốn mang đến kho sách điện tử phong phú, giúp mọi người tiếp cận tri thức dễ dàng, mọi lúc mọi nơi.</p>
+            <h2>Điểm nổi bật</h2>
+            <ul>
+                <li>Giao diện hiện đại, tối ưu cho cả mobile và desktop</li>
+                <li>Đọc sách online miễn phí, không quảng cáo gây phiền</li>
+                <li>Thư viện sách đa dạng, cập nhật liên tục</li>
+                <li>Hỗ trợ tìm kiếm, phân loại, đánh giá sách</li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 BookReader. All rights reserved.</p>
+    </footer>
+</body>
+</html>

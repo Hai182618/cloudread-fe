@@ -1,0 +1,58 @@
+/* CSS cho trang book-detail.html */
+.story-detail {
+    padding: 40px 0;
+}
+.story-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px;
+    align-items: flex-start;
+}
+.story-cover-section {
+    text-align: center;
+}
+.story-cover-wrapper img {
+    width: 220px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+.story-info {
+    margin-bottom: 18px;
+}
+.story-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.story-author {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+.story-actions {
+    margin-top: 18px;
+}
+.btn-read, .btn-download {
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    background: #667eea;
+    color: #fff;
+    margin-right: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.btn-read:hover, .btn-download:hover {
+    background: #764ba2;
+}
+@media (max-width: 900px) {
+    .story-detail-grid {
+        grid-template-columns: 1fr;
+    }
+    .story-cover-section {
+        margin-bottom: 32px;
+    }
+}

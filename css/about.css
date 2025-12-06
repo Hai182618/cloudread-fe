@@ -1,0 +1,12 @@
+/* CSS cho trang about.html */
+header.header {
+    background: #f5f5f5;
+    padding: 24px 0;
+    text-align: center;
+}
+main section {
+    max-width: 700px;
+    margin: 32px auto;
+    font-size: 1.1rem;
+    color: #333;
+}

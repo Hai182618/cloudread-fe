@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tìm kiếm - BookReader</title>
+    <meta name="description" content="Kết quả tìm kiếm sách và truyện tại BookReader">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../css/search-results.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <h2><i class="fas fa-book-open"></i> BookReader</h2>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Trang Chủ
+                    </a>
+                    <a href="book-list.html" class="nav-link">
+                        <i class="fas fa-th-large"></i> Thể loại
+                    </a>
+                    <a href="user-library.html" class="nav-link">
+                        <i class="fas fa-bookmark"></i> Thư viện
+                    </a>
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i> Hỗ trợ
+                    </a>
+                </div>
+                <div class="nav-auth">
+                    <button class="btn-login" data-action="login">Đăng nhập</button>
+                    <button class="btn-register" data-action="register">Đăng ký</button>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Results Container -->
+    <div class="search-results-container">
+        <div class="container">
+            <!-- Search Header -->
+            <div class="search-header">
+                <h1><i class="fas fa-search"></i> Kết quả tìm kiếm</h1>
+            </div>
+
+            <!-- Search Info -->
+            <div class="search-info">
+                <div class="search-term">
+                    Kết quả cho: <span class="keyword" id="searchKeyword">""</span>
+                </div>
+                <div class="results-count" id="resultsCount">
+                    Đang tìm kiếm...
+                </div>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label>Thể loại:</label>
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">Tất cả thể loại</option>
+                        <option value="tieu-thuyet">Tiểu thuyết</option>
+                        <option value="truyen-tranh">Truyện tranh</option>
+                        <option value="kiem-hiep">Kiếm hiệp</option>
+                        <option value="light-novel">Light Novel</option>
+                        <option value="truyen-trinh-tham">Trinh thám</option>
+                        <option value="fantasy">Huyền bí</option>
+                        <option value="truyen-teen">Truyện Teen</option>
+                        <option value="kinh-di">Kinh dị</option>
+                        <option value="hanh-dong">Hành động</option>
+                        <option value="hai-huoc">Hài hước</option>
+                        <option value="khoa-hoc-vien-tuong">Khoa học viễn tưởng</option>
+                        <option value="lich-su">Lịch sử</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Giá:</label>
+                    <select class="filter-select" id="priceFilter">
+                        <option value="">Tất cả giá</option>
+                        <option value="free">Miễn phí</option>
+                        <option value="0-50000">Dưới 50,000 VNĐ</option>
+                        <option value="50000-100000">50,000 - 100,000 VNĐ</option>
+                        <option value="100000+">Trên 100,000 VNĐ</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Đánh giá:</label>
+                    <select class="filter-select" id="ratingFilter">
+                        <option value="">Tất cả đánh giá</option>
+                        <option value="5">5 sao</option>
+                        <option value="4">4 sao trở lên</option>
+                        <option value="3">3 sao trở lên</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Đã tải:</label>
+                    <select class="filter-select" id="downloadFilter">
+                        <option value="">Tất cả</option>
+                        <option value="downloaded">Đã tải xuống</option>
+                        <option value="not-downloaded">Chưa tải xuống</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Yêu thích:</label>
+                    <select class="filter-select" id="favoriteFilter">
+                        <option value="">Tất cả</option>
+                        <option value="favorite">Yêu thích</option>
+                        <option value="not-favorite">Chưa yêu thích</option>
+                    </select>
+                </div>
+
+                <div class="sort-options">
+                    <div class="sort-group">
+                        <label>Sắp xếp:</label>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="relevance">Liên quan</option>
+                            <option value="newest">Mới nhất</option>
+                            <option value="oldest">Cũ nhất</option>
+                            <option value="rating">Đánh giá</option>
+                            <option value="price">Giá</option>
+                            <option value="download">Đã tải xuống</option>
+                            <option value="author">Tác giả</option>
+                            <option value="favorite">Yêu thích</option>
+                        </select>
+                        <button class="sort-direction-btn" id="sortDirection" data-direction="desc" title="Cao xuống thấp">
+                            <i class="fas fa-sort-amount-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading" id="loadingState" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+
+            <!-- Search Results Grid -->
+            <div class="search-results-grid" id="searchResultsGrid">
+                <!-- Results will be populated here by JavaScript -->
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>Không tìm thấy kết quả nào</h3>
+                <p>Hãy thử với từ khóa khác hoặc điều chỉnh bộ lọc tìm kiếm</p>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination" style="display: none;">
+                <button class="pagination-btn" id="prevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i> Trước
+                </button>
+                <span id="pageNumbers"></span>
+                <button class="pagination-btn" id="nextBtn">
+                    Sau <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BookReader</h3>
+                    <p>Nền tảng đọc sách trực tuyến hàng đầu Việt Nam</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Danh mục</h4>
+                    <ul>
+                        <li><a href="#">Tiểu thuyết</a></li>
+                        <li><a href="#">Truyện tranh</a></li>
+                        <li><a href="#">Kiếm hiệp</a></li>
+                        <li><a href="#">Light Novel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Báo lỗi</a></li>
+                        <li><a href="#">Góp ý</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Pháp lý</h4>
+                    <ul>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Bản quyền</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BookReader. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/search-results.js"></script>
+
+
+</body>
+</html>

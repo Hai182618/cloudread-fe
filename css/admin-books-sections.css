@@ -1,0 +1,181 @@
+/* Form Sections Styling */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border-radius: 12px;
+    border-left: 4px solid #6366f1;
+}
+
+.form-section__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-control span {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 0.95rem;
+}
+
+.form-control input,
+.form-control textarea,
+.form-control select {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: 0.2s ease;
+}
+
+.form-control input:focus,
+.form-control textarea:focus,
+.form-control select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-control small {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.form-actions .admin-btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+}
+
+/* Upload Cards */
+.upload-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .upload-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.upload-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.upload-card:hover {
+    border-color: #6366f1;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+}
+
+.upload-card__header {
+    padding: 12px;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upload-card__header > div {
+    flex: 1;
+}
+
+.upload-card__header h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.upload-card__header p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.file-drop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    background: #fafbfc;
+}
+
+.file-drop:hover {
+    border-color: #6366f1;
+    background: #f0f4ff;
+}
+
+.file-drop input {
+    display: none;
+}
+
+.file-drop i {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.file-drop p {
+    font-weight: 600;
+    margin: 8px 0 4px 0;
+    color: #1f2937;
+}
+
+.file-drop small {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .admin-main {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

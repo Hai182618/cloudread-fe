@@ -1,0 +1,394 @@
+/* Authentication Styles */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.checkbox input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.forgot-password {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn-primary.full-width {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.auth-footer {
+    text-align: center;
+}
+
+.auth-footer p {
+    color: #666;
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Book Detail Styles */
+.book-detail {
+    padding: 100px 0 50px;
+    min-height: 100vh;
+}
+
+.book-detail-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.book-cover-large {
+    position: sticky;
+    top: 120px;
+}
+
+.book-cover-large img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.book-info h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #2d3748;
+}
+
+.book-author, .book-category {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.book-rating {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.stars {
+    margin-right: 10px;
+}
+
+.stars i {
+    color: #ffc107;
+    margin-right: 2px;
+}
+
+.rating-text {
+    color: #666;
+    font-size: 14px;
+}
+
+.book-price {
+    margin: 25px 0;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e53e3e;
+    margin-right: 15px;
+}
+
+.old-price {
+    font-size: 1.2rem;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.book-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.book-actions button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #e53e3e;
+    border: 2px solid #e53e3e;
+}
+
+.book-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-description {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.book-description h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2d3748;
+}
+
+.book-description p {
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Reviews Section */
+.reviews-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reviews-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #2d3748;
+}
+
+.review-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.reviewer-info h4 {
+    margin-bottom: 5px;
+    color: #2d3748;
+}
+
+.review-stars {
+    display: flex;
+}
+
+.review-stars i {
+    color: #ffc107;
+    font-size: 12px;
+    margin-right: 2px;
+}
+
+.review-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .book-detail-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .book-cover-large {
+        position: static;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .book-info h1 {
+        font-size: 2rem;
+    }
+    
+    .book-actions {
+        justify-content: center;
+    }
+    
+    .book-actions button {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    .auth-card {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-actions {
+        flex-direction: column;
+    }
+    
+    .book-actions button {
+        width: 100%;
+    }
+    
+    .auth-container {
+        padding: 10px;
+    }
+}
+
+/* User menu styles */
+.user-menu-content {
+    padding: 1rem;
+}
+
+.user-menu-content h4 {
+    margin: 0 0 1rem 0;
+    color: #2d3748;
+}
+
+.user-menu-content p {
+    margin: 0.5rem 0;
+    color: #4a5568;
+}
+
+.logout-btn-inline {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.logout-btn-inline:hover {
+    background: #c53030;
+}
+
+/* Utility Classes */
+.favorite-heart {
+    color: red !important;
+}

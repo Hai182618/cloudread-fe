@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang đọc truyện - BookReader</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* CSS Riêng cho trang đọc */
+        body {
+            background-color: #f4f4f4; /* Màu nền dịu mắt */
+        }
+        .reader-header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .reader-container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            min-height: 80vh;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        
+        /* Cấu hình cho file Text */
+        #text-content {
+            font-family: 'Merriweather', 'Times New Roman', serif; /* Font chữ có chân dễ đọc */
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            white-space: pre-wrap; /* Quan trọng: Giữ nguyên xuống dòng của file txt */
+            text-align: justify;
+        }
+
+        /* Cấu hình cho file PDF */
+        #pdf-viewer {
+            width: 100%;
+            height: 85vh;
+            border: none;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .nav-btn {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .nav-btn.disabled {
+            background: #ccc;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Đọc Truyện -->
+    <div class="reader-header">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="text-decoration: none; color: #333;">
+                <i class="fas fa-arrow-left"></i> Trở về trang chủ
+            </a>
+            <h3 id="book-title" style="margin: 0; font-size: 1.2rem;">Đang tải...</h3>
+            <div>
+                <button onclick="changeFontSize(1)" title="Tăng chữ"><i class="fas fa-plus"></i></button>
+                <button onclick="changeFontSize(-1)" title="Giảm chữ"><i class="fas fa-minus"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khu vực hiển thị nội dung -->
+    <div class="reader-container" id="reader-area">
+        <div id="loading" style="text-align: center; padding: 50px;">
+            <i class="fas fa-spinner fa-spin fa-2x"></i><br>Đang tải nội dung...
+        </div>
+        <!-- Nội dung Text hoặc PDF sẽ được JS chèn vào đây -->
+    </div>
+
+    <!-- Script -->
+    <script type="module" src="../js/utils.js"></script>
+    <script type="module" src="../js/api.js"></script>
+    <script type="module" src="../js/read.js"></script>
+</body>
+</html>

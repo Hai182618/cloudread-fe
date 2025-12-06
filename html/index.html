@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookReader - Trang Chủ</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Tùy chỉnh nhỏ cho phần User Header -->
+    <style>
+        .user-actions-container {
+            display: none; /* Mặc định ẩn, JS sẽ hiện nếu có user */
+            align-items: center;
+            gap: 15px;
+        }
+        .user-profile-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 5px 12px;
+            border-radius: 25px;
+            transition: background 0.2s;
+            border: 1px solid transparent;
+        }
+        .user-profile-btn:hover {
+            background-color: #f0f2f5;
+            border-color: #e2e8f0;
+        }
+        .header-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #4fd1c5;
+        }
+        .header-username {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #333;
+            max-width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .btn-logout-icon {
+            background: transparent;
+            border: none;
+            color: #e53e3e;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+        .btn-logout-icon:hover {
+            background-color: #fff5f5;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h2><i class="fas fa-book-open"></i> BookReader</h2></a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Trang Chủ</a>
+                    <a href="book-list.html" class="nav-link"><i class="fas fa-th-large"></i> Thể loại</a>
+                    <a href="user-library.html" class="nav-link"><i class="fas fa-bookmark"></i> Thư viện</a>
+                </div>  
+                
+                <!-- PHẦN AUTHENTICATION -->
+                <div class="nav-auth">
+                    <!-- 1. Cho Khách (Chưa đăng nhập) -->
+                    <div id="guest-actions">
+                        <button class="btn-login" onclick="window.location.href='login.html'">Đăng nhập</button>
+                        <button class="btn-register" onclick="window.location.href='register.html'">Đăng ký</button>
+                    </div>
+
+                    <!-- 2. Cho Thành viên (Đã đăng nhập) -->
+                    <div id="user-actions" class="user-actions-container">
+                        <!-- Nút bấm vào trang hồ sơ -->
+                        <div class="user-profile-btn" onclick="window.location.href='profile.html'" title="Chỉnh sửa hồ sơ">
+                            <img src="../assets/images/default-avatar.png" id="header-avatar" class="header-avatar" alt="Avatar" 
+                                 onerror="this.src='https://ui-avatars.com/api/?name=User&background=random'">
+                            <span id="header-username" class="header-username">User</span>
+                        </div>
+                        
+                        <!-- Nút Đăng xuất -->
+                        <button id="btn-logout" class="btn-logout-icon" title="Đăng xuất">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider-section">
+        <div class="hero-slider-container" id="hero-slider-container">
+            <div style="text-align: center; padding: 80px; color: white;">
+                <i class="fas fa-spinner fa-spin fa-2x"></i><br>Đang tải sách...
+            </div>
+        </div>
+        
+        <!-- Search -->
+        <div class="quick-search-bar">
+            <div class="container">
+                <div class="search-bar-content">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="heroSearchInput" placeholder="Tìm kiếm truyện, tác giả...">
+                    </div>
+                    <button class="btn-search-quick" id="heroSearchBtn"><span>Tìm kiếm</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Book Section -->
+    <section class="weekly-book-section">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-title-large"><i class="fas fa-trophy"></i> Sách Đề Cử Tuần Này</h2>
+            </div>
+            
+            <div class="weekly-book-grid">
+                <div class="weekly-featured-book" id="weekly-featured-book"></div>
+                <div class="weekly-side-books" id="weekly-side-books"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content 3 Columns -->
+    <section class="main-content">
+        <div class="container">
+            <div class="content-grid-3col">
+                <div class="content-column">
+                    <div class="section-header"><h2 class="section-title"><i class="fas fa-clock"></i> Mới cập nhật</h2></div>
+                    <div class="story-list-vertical" id="new-updates-list"></div>
+                </div>
+                <div class="content-column">
+                    <div class="section-header"><h2 class="section-title"><i class="fas fa-fire"></i> Truyện HOT</h2></div>
+                    <div class="story-list-vertical" id="hot-weekly-list"></div>
+                </div>
+                <div class="content-column">
+                    <div class="section-header"><h2 class="section-title"><i class="fas fa-bookmark"></i> Nổi bật</h2></div>
+                    <div class="story-list-vertical" id="featured-list"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <div class="section-header"><h2 class="section-title"><i class="fas fa-th-large"></i> Thể loại</h2></div>
+            <div class="category-grid">
+                <a href="book-list.html?category=1" class="category-card popular">
+                    <div class="category-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Tiểu thuyết</h3>
+                </a>
+                <a href="book-list.html?category=2" class="category-card trending">
+                    <div class="category-icon"><i class="fas fa-mask"></i></div>
+                    <h3>Truyện tranh</h3>
+                </a>
+                <a href="book-list.html?category=3" class="category-card hot">
+                    <div class="category-icon"><i class="fas fa-sword"></i></div>
+                    <h3>Kiếm hiệp</h3>
+                </a>
+                <a href="book-list.html?category=4" class="category-card">
+                    <div class="category-icon"><i class="fas fa-search"></i></div>
+                    <h3>Trinh thám</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BookReader</h3>
+                    <p>Nền tảng đọc sách trực tuyến.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BookReader.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Type module cho các file logic mới -->
+    <script type="module" src="../js/utils.js"></script>
+    <script type="module" src="../js/api.js"></script>
+    <script type="module" src="../js/home.js"></script>
+    
+    <!-- Script chính xử lý giao diện chung và auth header -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookReader - Layout Template</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .layout-guide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 36px 0 24px 0;
+            text-align: center;
+        }
+        .layout-guide h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .layout-guide p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .layout-main-demo {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            margin: 32px auto 0 auto;
+            max-width: 700px;
+            padding: 32px 28px;
+            color: #333;
+        }
+        .layout-main-demo code {
+            background: #f3f3f3;
+            border-radius: 4px;
+            padding: 2px 6px;
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-book-open"></i> BookReader</h2>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                    <a href="book-list.html" class="nav-link">Thể loại</a>
+                    <a href="#" class="nav-link">Thư viện</a>
+                    <a href="#" class="nav-link">Hỗ trợ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="layout-guide">
+        <h1>Template Layout BookReader</h1>
+        <p>Đây là file layout mẫu để dùng cho các trang động (Thymeleaf, template engine hoặc backend render).<br>
+        Bạn có thể <b>include header, footer, menu</b> và chèn nội dung động vào phần <code>&lt;main&gt;</code>.<br>
+        Tham khảo bố cục và màu sắc từ <a href="https://nhasachmienphi.com/" style="color:#ffe082;text-decoration:underline;" target="_blank">nhasachmienphi.com</a>.</p>
+    </div>
+    <main class="layout-main-demo">
+        <h2>Ví dụ sử dụng layout:</h2>
+        <ul>
+            <li>Header, menu, footer dùng chung cho mọi trang.</li>
+            <li>Nội dung động sẽ được <b>render vào giữa</b> (giữa thẻ <code>&lt;main&gt;</code>).</li>
+            <li>Thích hợp cho dự án Spring Boot, NodeJS, hoặc bất kỳ backend nào hỗ trợ template engine.</li>
+        </ul>
+        <p style="margin-top:18px;">Bạn có thể copy phần header/footer này sang các file HTML khác để đồng bộ giao diện.</p>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 BookReader. All rights reserved.</p>
+    </footer>
+</body>
+</html>

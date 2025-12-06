@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - BookReader</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Background Animation -->
+        <div class="auth-background">
+            <div class="floating-book book-1">📚</div>
+            <div class="floating-book book-2">📖</div>
+            <div class="floating-book book-3">📝</div>
+            <div class="floating-book book-4">📜</div>
+        </div>
+
+        <!-- Back to Home -->
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            Về trang chủ
+        </a>
+
+        <!-- Auth Card -->
+        <div class="auth-card">
+            <!-- Logo và Header -->
+            <div class="auth-header">
+                <div class="logo-container">
+                    <i class="fas fa-book-open"></i>
+                    <h2>BookReader</h2>
+                </div>
+                <h3>Tạo tài khoản mới</h3>
+                <p>Tham gia cộng đồng đọc sách lớn nhất Việt Nam</p>
+            </div>
+
+            <!-- Form đăng ký -->
+            <form class="auth-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="firstName">
+                            <i class="fas fa-user"></i>
+                            Họ
+                        </label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Nhập họ của bạn">
+                    </div>
+                    <div class="form-group half">
+                        <label for="lastName">
+                            <i class="fas fa-user"></i>
+                            Tên
+                        </label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Nhập tên của bạn">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                    <span class="input-feedback" id="emailFeedback"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">
+                        <i class="fas fa-phone"></i>
+                        Số điện thoại
+                    </label>
+                    <input type="tel" id="phone" name="phone" required placeholder="0123456789">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Mật khẩu
+                    </label>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" required placeholder="Tối thiểu 8 ký tự">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-progress" id="strengthProgress"></div>
+                        </div>
+                        <span class="strength-text" id="strengthText">Độ mạnh mật khẩu</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <i class="fas fa-lock"></i>
+                        Xác nhận mật khẩu
+                    </label>
+                    <div class="password-input">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Nhập lại mật khẩu">
+                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="input-feedback" id="confirmFeedback"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="interests" class="select-label">
+                        <i class="fas fa-heart"></i>
+                        Thể loại yêu thích
+                    </label>
+                    <select id="interests" name="interests" required>
+                        <option value="">Chọn thể loại bạn quan tâm</option>
+                        <option value="van-hoc">Văn học</option>
+                        <option value="kinh-te">Kinh tế - Kinh doanh</option>
+                        <option value="phat-trien-ban-than">Phát triển bản thân</option>
+                        <option value="lich-su">Lịch sử</option>
+                        <option value="khoa-hoc">Khoa học - Công nghệ</option>
+                        <option value="tieu-thuyet">Tiểu thuyết</option>
+                        <option value="tam-ly-hoc">Tâm lý học</option>
+                        <option value="thieu-nhi">Thiếu nhi</option>
+                    </select>
+                </div>
+
+                <div class="form-options">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="terms" required>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">
+                            Tôi đồng ý với <a href="#" class="link">Điều khoản sử dụng</a> và 
+                            <a href="#" class="link">Chính sách bảo mật</a>
+                        </span>
+                    </label>
+
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="newsletter" checked>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">
+                            Nhận thông báo về sách mới và khuyến mãi
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary full-width" id="registerBtn">
+                    <i class="fas fa-user-plus"></i>
+                    Tạo tài khoản
+                </button>
+
+                <div class="divider">
+                    <span>Hoặc đăng ký với</span>
+                </div>
+
+                <div class="social-auth">
+                    <button type="button" class="btn-social google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button" class="btn-social facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </button>
+                </div>
+
+                <div class="auth-footer">
+                    <p>Đã có tài khoản? <a href="login.html" class="switch-link">Đăng nhập ngay</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Features Highlight -->
+        <div class="features-highlight">
+            <div class="feature-item">
+                <i class="fas fa-book"></i>
+                <span>10,000+ sách</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-download"></i>
+                <span>Đọc offline</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Đa nền tảng</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

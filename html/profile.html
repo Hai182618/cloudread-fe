@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ người dùng - BookReader</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/profile.css"> <!-- File CSS riêng cho profile -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (Copy từ index.html hoặc dùng JS load chung) -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h2><i class="fas fa-book-open"></i> BookReader</h2></a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Trang Chủ</a>
+                    <a href="user-library.html" class="nav-link"><i class="fas fa-bookmark"></i> Thư viện</a>
+                </div>
+                <div class="nav-auth">
+                    <div id="user-actions" style="display: flex; align-items: center; gap: 15px;">
+                        <button id="btn-logout" title="Đăng xuất"><i class="fas fa-sign-out-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container profile-container">
+        <!-- Sidebar Menu -->
+        <aside class="profile-sidebar">
+            <div class="profile-user-card">
+                <img src="../assets/images/default-avatar.png" id="sidebar-avatar" alt="Avatar">
+                <h3 id="sidebar-name">Đang tải...</h3>
+                <p id="sidebar-role">Thành viên</p>
+            </div>
+            <ul class="profile-menu">
+                <li class="active" data-tab="general">
+                    <i class="fas fa-user"></i> Thông tin chung
+                </li>
+                <li data-tab="password">
+                    <i class="fas fa-key"></i> Đổi mật khẩu
+                </li>
+                <li data-tab="email">
+                    <i class="fas fa-envelope"></i> Đổi Email
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="profile-content">
+            
+            <!-- TAB 1: THÔNG TIN CHUNG -->
+            <section id="tab-general" class="tab-content active">
+                <h2 class="tab-title">Thông tin cá nhân</h2>
+                <form id="form-update-info">
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <input type="text" id="inp-username" disabled style="background: #f0f2f5;">
+                    </div>
+                    <div class="form-group">
+                        <label>Họ và tên</label>
+                        <input type="text" id="inp-fullname" placeholder="Nhập họ tên của bạn">
+                    </div>
+                    <!-- Thêm các trường khác tùy theo UserUpdateRequest của bạn -->
+                    <div class="form-group">
+                        <label>Ngày sinh</label>
+                        <input type="date" id="inp-dob">
+                    </div>
+                    <button type="submit" class="btn-save">Lưu thay đổi</button>
+                </form>
+            </section>
+
+            <!-- TAB 2: ĐỔI MẬT KHẨU (Multi-step) -->
+            <section id="tab-password" class="tab-content">
+                <h2 class="tab-title">Đổi mật khẩu</h2>
+                
+                <!-- Step 1: Xác nhận mật khẩu cũ -->
+                <div id="pwd-step-1" class="step-container">
+                    <p class="step-desc">Bước 1/3: Nhập mật khẩu hiện tại để xác minh.</p>
+                    <div class="form-group">
+                        <label>Mật khẩu hiện tại</label>
+                        <input type="password" id="inp-pwd-current">
+                    </div>
+                    <button class="btn-next" onclick="PasswordFlow.verifyCurrent()">Tiếp tục</button>
+                </div>
+
+                <!-- Step 2: Nhập OTP -->
+                <div id="pwd-step-2" class="step-container" style="display: none;">
+                    <p class="step-desc">Bước 2/3: Mã OTP đã được gửi về email của bạn.</p>
+                    <div class="form-group">
+                        <label>Mã OTP</label>
+                        <input type="text" id="inp-pwd-otp" placeholder="Nhập mã 6 số">
+                    </div>
+                    <button class="btn-next" onclick="PasswordFlow.verifyOtp()">Xác thực OTP</button>
+                </div>
+
+                <!-- Step 3: Đổi mật khẩu mới -->
+                <div id="pwd-step-3" class="step-container" style="display: none;">
+                    <p class="step-desc">Bước 3/3: Nhập mật khẩu mới.</p>
+                    <div class="form-group">
+                        <label>Mật khẩu mới</label>
+                        <input type="password" id="inp-pwd-new">
+                    </div>
+                    <div class="form-group">
+                        <label>Nhập lại mật khẩu mới</label>
+                        <input type="password" id="inp-pwd-confirm">
+                    </div>
+                    <button class="btn-save" onclick="PasswordFlow.submitChange()">Đổi mật khẩu</button>
+                </div>
+            </section>
+
+            <!-- TAB 3: ĐỔI EMAIL (Multi-step phức tạp hơn) -->
+            <section id="tab-email" class="tab-content">
+                <h2 class="tab-title">Thay đổi Email</h2>
+                
+                <!-- Step 1: Verify Password -->
+                <div id="email-step-1" class="step-container">
+                    <p class="step-desc">Bước 1/4: Nhập mật khẩu hiện tại.</p>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" id="inp-email-pwd">
+                    </div>
+                    <button class="btn-next" onclick="EmailFlow.verifyCurrentPwd()">Tiếp tục</button>
+                </div>
+
+                <!-- Step 2: Verify OTP Old Email -->
+                <div id="email-step-2" class="step-container" style="display: none;">
+                    <p class="step-desc">Bước 2/4: Nhập OTP gửi về <b>Email cũ</b>.</p>
+                    <input type="text" id="inp-email-otp-old" placeholder="OTP Email cũ">
+                    <button class="btn-next" onclick="EmailFlow.verifyOldEmailOtp()">Tiếp tục</button>
+                </div>
+
+                <!-- Step 3: Enter New Email -->
+                <div id="email-step-3" class="step-container" style="display: none;">
+                    <p class="step-desc">Bước 3/4: Nhập địa chỉ Email mới.</p>
+                    <input type="email" id="inp-email-new" placeholder="example@gmail.com">
+                    <button class="btn-next" onclick="EmailFlow.verifyNewEmail()">Gửi OTP sang Email mới</button>
+                </div>
+
+                <!-- Step 4: Verify OTP New Email & Submit -->
+                <div id="email-step-4" class="step-container" style="display: none;">
+                    <p class="step-desc">Bước 4/4: Nhập OTP gửi về <b>Email mới</b>.</p>
+                    <input type="text" id="inp-email-otp-new" placeholder="OTP Email mới">
+                    <button class="btn-save" onclick="EmailFlow.submitChange()">Hoàn tất</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="toast-container"></div>
+
+    <script src="../js/profile.js"></script>
+</body>
+</html>

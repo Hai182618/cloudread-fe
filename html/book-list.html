@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách truyện - BookReader</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/book-list.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <h2><i class="fas fa-book-open"></i> BookReader</h2>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Trang Chủ
+                    </a>
+                    <a href="book-list.html" class="nav-link active">
+                        <i class="fas fa-th-large"></i> Thể loại
+                    </a>
+                    <a href="user-library.html" class="nav-link">
+                        <i class="fas fa-bookmark"></i> Thư viện
+                    </a>
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i> Hỗ trợ
+                    </a>
+                </div>
+                <div class="nav-auth">
+                    <button class="btn-login" data-action="login">Đăng nhập</button>
+                    <button class="btn-register" data-action="register">Đăng ký</button>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="book-list-banner">
+        <div class="container">
+            <h1><i class="fas fa-book-open"></i> Thư viện truyện</h1>
+            <p>Khám phá hàng ngàn truyện đa dạng thể loại</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="book-list-main">
+        <div class="container">
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <div class="filters-header">
+                    <h2><i class="fas fa-filter"></i> Bộ lọc</h2>
+                    <button class="btn-reset-filters" id="resetFilters">
+                        <i class="fas fa-redo"></i> Đặt lại
+                    </button>
+                </div>
+                
+                <div class="filters-grid">
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <label><i class="fas fa-tags"></i> Thể loại</label>
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">Tất cả thể loại</option>
+                            <option value="action">Hành động</option>
+                            <option value="romance">Lãng mạn</option>
+                            <option value="fantasy">Huyền huyễn</option>
+                            <option value="scifi">Khoa học viễn tưởng</option>
+                            <option value="mystery">Trinh thám</option>
+                            <option value="horror">Kinh dị</option>
+                            <option value="comedy">Hài hước</option>
+                            <option value="drama">Kịch tính</option>
+                        </select>
+                    </div>
+
+                    <!-- Status Filter -->
+                    <div class="filter-group">
+                        <label><i class="fas fa-check-circle"></i> Trạng thái</label>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="">Tất cả</option>
+                            <option value="ongoing">Đang cập nhật</option>
+                            <option value="completed">Hoàn thành</option>
+                        </select>
+                    </div>
+
+                    <!-- Sort Filter -->
+                    <div class="filter-group">
+                        <label><i class="fas fa-sort"></i> Sắp xếp</label>
+                        <select id="sortFilter" class="filter-select">
+                            <option value="latest">Mới nhất</option>
+                            <option value="popular">Phổ biến nhất</option>
+                            <option value="rating">Đánh giá cao</option>
+                            <option value="views">Nhiều lượt xem</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Info -->
+            <div class="results-info">
+                <p class="results-count">Tìm thấy <strong id="totalResults">24</strong> truyện</p>
+                <div class="view-mode">
+                    <button class="view-btn active" data-view="grid" title="Hiển thị dạng lưới">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="Hiển thị dạng danh sách">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Books Grid -->
+            <section class="books-grid-section">
+                <div class="books-grid" id="booksGrid">
+                    <!-- Book cards will be generated here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="page-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <button class="page-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-book-open"></i> BookReader</h3>
+                    <p>Nền tảng đọc sách trực tuyến hàng đầu Việt Nam</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="book-list.html">Danh sách truyện</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="contact.html">Trung tâm hỗ trợ</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BookReader. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/book-list.js"></script>
+</body>
+</html>
